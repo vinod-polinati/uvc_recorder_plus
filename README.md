@@ -1,6 +1,5 @@
 # uvc_recorder_plus
 
-[![Pub Version](https://img.shields.io/pub/v/uvc_recorder_plus)](https://pub.dev/packages/uvc_recorder_plus)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://flutter.dev)
 
@@ -37,14 +36,10 @@ A Flutter plugin for UVC camera access and video recording on Android.
 
 ## Installation
 
+> **Note:** This package is distributed via GitHub due to its size (contains native libraries). It is not available on pub.dev.
+
 Add this to your `pubspec.yaml`:
 
-```yaml
-dependencies:
-  uvc_recorder_plus: ^1.1.1
-```
-
-Or install from GitHub:
 ```yaml
 dependencies:
   uvc_recorder_plus:
@@ -54,7 +49,7 @@ dependencies:
 
 Then run `flutter pub get`.
 
-3. Follow the Android setup steps below.
+Follow the Android setup steps below.
 
 ### Android
 
