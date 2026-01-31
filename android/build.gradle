@@ -1,0 +1,103 @@
+group = "com.serenegiant.uvc_manager"
+version = "1.0-SNAPSHOT"
+
+buildscript {
+    ext.kotlin_version = "1.8.22"
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.7.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://raw.github.com/saki4510t/libcommon/master/repository/' }
+    }
+}
+
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+
+android {
+    namespace = "com.serenegiant.uvc_manager"
+
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+        test.java.srcDirs += "src/test/kotlin"
+    }
+
+    defaultConfig {
+        minSdk = 21
+
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_TOOLCHAIN=clang",
+                        "-DANDROID_ARM_MODE=arm",
+                        "-DANDROID_STL=c++_static",
+                        "-DANDROID_CPP_FEATURES=rtti exceptions"
+                def flags = "-DANDROID_NDK"
+                cFlags flags
+                cppFlags flags
+            }
+        }
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
+    }
+
+    dependencies {
+        testImplementation("org.jetbrains.kotlin:kotlin-test")
+        testImplementation("org.mockito:mockito-core:5.1.0")
+        implementation "androidx.core:core-ktx:1.13.0"
+        implementation "androidx.appcompat:appcompat:1.7.1"
+        implementation("com.serenegiant:common:9.16.0")
+        // XXX example側のaarを参照する...
+        //     プラグイン側でローカルaarとして取り込んで、example画家へダミーのmavenレポジトリとして
+        //     アクセスできるように設定すると、Androidのプロジェクトとして開けばビルド・実行可能だけど、
+        //     Flutterのプロジェクトとして開いてmain.dartを実行しようとすると現行のFlutter SDKでは
+        //     エラーになってビルドできないので仕方なくexample側へモジュールとしてaarをインポートして
+        //     プラグイン側から参照するようにした。
+//        implementation project(":aandusb-release")
+//        implementation project(":flutter-uvc-plugin-release")
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+
+            testLogging {
+               events "passed", "skipped", "failed", "standardOut", "standardError"
+               outputs.upToDateWhen {false}
+               showStandardStreams = true
+            }
+        }
+    }
+}
