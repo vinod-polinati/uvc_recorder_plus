@@ -44,7 +44,7 @@ Add this to your `pubspec.yaml`:
 dependencies:
   uvc_recorder_plus:
     git:
-      url: https://github.com/mintuboi/uvc_recorder_plus.git
+      url: https://github.com/vinod-polinati/uvc_recorder_plus.git
 ```
 
 Then run `flutter pub get`.
