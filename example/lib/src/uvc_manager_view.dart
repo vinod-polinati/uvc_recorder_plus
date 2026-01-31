@@ -17,7 +17,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-import 'package:uvc_recorder_plus/uvc_manager.dart';
+import 'package:uvc_recorder_plus/uvc_recorder_plus.dart';
 import './uvc_control_value.dart';
 import './uvc_control_settings.dart';
 

@@ -15,7 +15,7 @@
 import 'dart:ui';
 
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-import 'package:uvc_recorder_plus/uvc_manager.dart';
+import 'package:uvc_recorder_plus/uvc_recorder_plus.dart';
 
 abstract class UVCControllerInterface {
   int get deviceId =>

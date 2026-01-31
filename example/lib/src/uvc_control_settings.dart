@@ -14,7 +14,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:uvc_recorder_plus/uvc_manager.dart';
+import 'package:uvc_recorder_plus/uvc_recorder_plus.dart';
 
 class ControlSettings {
   /// UVC機器コントロール機能の種類

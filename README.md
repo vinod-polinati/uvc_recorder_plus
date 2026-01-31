@@ -1,7 +1,10 @@
 # uvc_recorder_plus
------
 
-A Flutter plugin to access UVC device(s) on Android devices.
+[![Pub Version](https://img.shields.io/pub/v/uvc_recorder_plus)](https://pub.dev/packages/uvc_recorder_plus)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://flutter.dev)
+
+A Flutter plugin for UVC camera access and video recording on Android.
 
 |                | Android |
 |----------------|---------|
@@ -13,6 +16,7 @@ A Flutter plugin to access UVC device(s) on Android devices.
 * Handle USB permission to access UVC devices.
 * Render live video images from UVC device into texture.
 * Display live video images from UVC device in a widget.
+* **Video recording support** - Record UVC camera feed to MP4 files.
 * Access UVC control functions, ex. brightness, contrast, exposure etc.
   Actual functions that this plugin can control are depends on each UVC device.
 * Can select video size and frame type.
@@ -31,16 +35,26 @@ A Flutter plugin to access UVC device(s) on Android devices.
 * Most UVC devices still work with USB2 and may be better to use USB2 cable even if your Android device supports USB3.x.
 * Android 10 and later devices needs `AUDIO_RECORD` permission to grant permanent permission to access UVC devices.
 
-## Setup your project
+## Installation
 
-1. create your new Flutter project.
-2. add this repository into your `pubspec.yaml` as a reference of git repository.
-   ```yaml
-    uvc_manager:
-      git:
-        url: https://github.com/saki4510t/UVC4Flutter.git
-   ```
-3. Follows steps for each platform.
+Add this to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  uvc_recorder_plus: ^1.1.1
+```
+
+Or install from GitHub:
+```yaml
+dependencies:
+  uvc_recorder_plus:
+    git:
+      url: https://github.com/mintuboi/uvc_recorder_plus.git
+```
+
+Then run `flutter pub get`.
+
+3. Follow the Android setup steps below.
 
 ### Android
 

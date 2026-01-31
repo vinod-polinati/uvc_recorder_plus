@@ -1,5 +1,6 @@
 name: uvc_recorder_plus
 description: "A Flutter plugin for UVC camera recording and preview on Android with support for video recording."
+version: 1.1.1
 homepage: https://github.com/mintuboi/uvc_recorder_plus
 
 environment:

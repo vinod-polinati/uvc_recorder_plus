@@ -15,7 +15,7 @@
 import 'dart:ui';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:uvc_recorder_plus/uvc_manager.dart';
+import 'package:uvc_recorder_plus/uvc_recorder_plus.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 class MockUvcManagerPlatform

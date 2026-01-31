@@ -12,7 +12,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import 'package:uvc_recorder_plus/uvc_manager.dart';
+import 'package:uvc_recorder_plus/uvc_recorder_plus.dart';
 
 /// 解像度設定
 class VideoSize {

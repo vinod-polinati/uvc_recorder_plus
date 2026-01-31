@@ -2,6 +2,7 @@
 
 * Renamed package to `uvc_recorder_plus`.
 * Added UVC recording support.
+* Improved README and documentation.
 
 ## 1.1.0
 
